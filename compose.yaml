@@ -146,6 +146,43 @@ services:
     networks:
       - fase-04-network
 
+  batch-db-service:
+    container_name: batch-postgresql
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: batch-db
+      POSTGRES_USER: batch-postgres-user
+      POSTGRES_PASSWORD: batch-postgres-pwd
+    ports:
+      - 5437:5432
+    volumes:
+      - /var/lib/postgres
+    networks:
+      - fase-04-network
+
+  product-batch-api:
+    container_name: product-batch-api
+    build:
+      context: ./product-batch
+    depends_on:
+      - batch-db-service
+      - product-db-service
+      - logistics-db-service
+    ports:
+      - "8087:8087"
+    environment:
+      spring.datasource.jdbcurl: jdbc:postgresql://batch-db-service/batch-db
+      spring.datasource.username: batch-postgres-user
+      spring.datasource.password: batch-postgres-pwd
+      product.datasource.jdbcurl: jdbc:postgresql://product-db-service/product-db
+      product.datasource.username: product-postgres-user
+      product.datasource.password: product-postgres-pwd
+      logistics.datasource.jdbcurl: jdbc:postgresql://logistics-db-service/logistics-db
+      logistics.datasource.username: logistics-postgres-user
+      logistics.datasource.password: logistics-postgres-pwd
+    networks:
+      - fase-04-network
+
 networks:
   fase-04-network:
     driver: bridge

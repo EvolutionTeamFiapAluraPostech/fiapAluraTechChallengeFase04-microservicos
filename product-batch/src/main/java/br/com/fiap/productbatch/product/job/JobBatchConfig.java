@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class JobBatchConfig {
 
-  @Bean
+  @Bean("productJob")
   public Job jobProduct(JobRepository jobRepository, @Qualifier("productStep") Step step) {
     return new JobBuilder("productJob", jobRepository)
         .incrementer(new RunIdIncrementer())
