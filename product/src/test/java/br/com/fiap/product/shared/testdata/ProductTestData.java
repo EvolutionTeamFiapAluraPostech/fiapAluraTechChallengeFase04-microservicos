@@ -8,8 +8,8 @@ public final class ProductTestData {
 
   public static final UUID DEFAULT_PRODUCT_ID = UUID.randomUUID();
   public static final String DEFAULT_PRODUCT_ID_STRING = DEFAULT_PRODUCT_ID.toString();
-  public static final String DEFAULT_PRODUCT_SKU = "Key/BR-/Erg/Bla";
-  public static final String DEFAULT_PRODUCT_DESCRIPTION = "Keyboard Ergonomic Black";
+  public static final String DEFAULT_PRODUCT_SKU = "Key/BR-/Erg/Gre";
+  public static final String DEFAULT_PRODUCT_DESCRIPTION = "Keyboard Ergonomic Green";
   public static final String DEFAULT_PRODUCT_UNIT_MEASUREMENT = "UN";
   public static final BigDecimal DEFAULT_PRODUCT_QUANTITY_STOCK = new BigDecimal("10.00");
   public static final BigDecimal DEFAULT_PRODUCT_PRICE = new BigDecimal("315.00");

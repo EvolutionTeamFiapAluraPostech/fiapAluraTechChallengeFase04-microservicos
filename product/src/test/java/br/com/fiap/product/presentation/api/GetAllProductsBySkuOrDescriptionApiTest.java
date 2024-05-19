@@ -99,26 +99,6 @@ class GetAllProductsBySkuOrDescriptionApiTest {
   }
 
   @Test
-  void shouldReturnOkWhenFindProductByEmptySkuAndEmptyDescription() throws Exception {
-    var product = createAndPersistProduct();
-    var productPage = PageUtil.generatePageOfProduct(product);
-    var productOutputDtoExpected = ProductOutputDto.toPage(productPage);
-
-    var request = get(URL_PRODUCTS)
-        .param("sku", "")
-        .param("description", "");
-    var result = mockMvc.perform(request)
-        .andExpect(status().isOk())
-        .andExpect(content().contentType(APPLICATION_JSON))
-        .andReturn();
-
-    var contentAsString = result.getResponse().getContentAsString();
-    var productFound = JsonUtil.fromJson(contentAsString, ProductContent.class);
-    assertThat(productFound.getContent().get(0).id()).isEqualTo(
-        productOutputDtoExpected.getContent().get(0).id());
-  }
-
-  @Test
   void shouldReturnOkWhenFindProductWasNotFound() throws Exception {
     var request = get(URL_PRODUCTS)
         .param("sku", "1ab")

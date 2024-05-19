@@ -42,7 +42,11 @@ dependencies {
 	testImplementation "com.tngtech.archunit:archunit:${versionArchUnit}"
 }
 
-tasks.withType(Test).configureEach {
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+/*tasks.withType(Test).configureEach {
 	description = 'Runs the unit tests.'
 	group = 'verification'
 	useJUnitPlatform({
@@ -56,4 +60,4 @@ tasks.register('integrationTest', Test) {
 	useJUnitPlatform {
 		includeTags 'integrationTest'
 	}
-}
+}*/
