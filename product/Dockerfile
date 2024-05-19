@@ -4,6 +4,6 @@ WORKDIR /home/gradle/src/producer
 RUN gradle bootJar --no-daemon --stacktrace
 FROM openjdk:17-jdk-alpine
 ARG JAR_FILE=build/libs/*.jar
-COPY --from=build /home/gradle/src/producer/build/libs/*.jar customer.jar
-EXPOSE 8083
-ENTRYPOINT ["java","-jar","/customer.jar"]
+COPY --from=build /home/gradle/src/producer/build/libs/*.jar product.jar
+EXPOSE 8084
+ENTRYPOINT ["java","-jar","/product.jar"]
