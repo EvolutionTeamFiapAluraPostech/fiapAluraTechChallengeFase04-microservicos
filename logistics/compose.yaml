@@ -1,0 +1,18 @@
+services:
+  logistics-db:
+    container_name: postgresql-logistics
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: logistics-db
+      POSTGRES_USER: logistics-postgres-user
+      POSTGRES_PASSWORD: logistics-postgres-pwd
+    ports:
+      - 5436:5432
+    volumes:
+      - /var/lib/postgres
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge

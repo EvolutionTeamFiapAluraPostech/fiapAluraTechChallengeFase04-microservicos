@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: logistics
+  jpa:
+    show-sql: true
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5436/logistics-db
+    username: logistics-postgres-user
+    password: logistics-postgres-pwd
+  flyway:
+    baseline-on-migrate: true
+    schemas: 'flyway'
+
+server:
+  port: 8086
+  error:
+    include-stacktrace: never
+
+base:
+  url:
+    http-company: http://localhost:8082
+    http-customer: http://localhost:8083
+    http-product: http://localhost:8084
+    http-order: http://localhost:8085

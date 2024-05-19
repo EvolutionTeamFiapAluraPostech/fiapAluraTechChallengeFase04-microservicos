@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: company
+  jpa:
+    show-sql: true
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/company-db
+    username: company-postgres-user
+    password: company-postgres-pwd
+  flyway:
+    baseline-on-migrate: true
+    schemas: 'flyway'
+
+server:
+  port: 8082
+  error:
+    include-stacktrace: never

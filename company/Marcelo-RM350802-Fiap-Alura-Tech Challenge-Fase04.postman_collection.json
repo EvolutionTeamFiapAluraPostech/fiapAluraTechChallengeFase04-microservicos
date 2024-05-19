@@ -1,0 +1,2204 @@
+{
+	"info": {
+		"_postman_id": "58d6c894-eda6-421f-8b5e-d4b99f0f7062",
+		"name": "Fiap/Alura - Tech Challenge - Fase 04",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9250904"
+	},
+	"item": [
+		{
+			"name": "01 - Company",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "01 - Return created status when create new company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when company's name was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when company's name length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Th\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return bad request status when company's email was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when company's email is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson.itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when company's doc number was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when company's doc number is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when company's cpf is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when company's cnpj is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"12345678901234\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when company's doc number already exists",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "11 - Return bad request status when company's street was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "12 - Return bad request status when company's street length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"AB\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "13 - Return bad request status when company's address number was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "14 - Return bad request status when company's address neighborhood was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "15 - Return bad request status when company's address city was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "16 - Return bad request status when company's address state was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "17 - Return bad request status when company's address country was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "18 - Return bad request status when company's address postal code was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						},
+						{
+							"name": "19 - Return bad request status when company's address postal code is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"1234567O\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "01 - Return ok when find company by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return not found when not find company by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-companies}}/companies/8f836f61-17c4-4f4f-935e-8625aad84ee7"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request when find company by invalid id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-companies}}/companies/1ab"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "01 - Return accept status when update company",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when company's name was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when company's name length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return bad request status when company's email was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when company's email is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it.itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when company's doc number was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when company's doc number is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when company's cpf is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"12345678901\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when company's cnpj is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"12345678901234\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when company's doc number already exists",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "11 - Return bad request status when company's street was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "12 - Return bad request status when company's street length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "13 - Return bad request status when company's address number was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "14 - Return bad request status when company's address neighborhood was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "15 - Return bad request status when company's address city was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "16 - Return bad request status when company's address state was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "17 - Return bad request status when company's address country was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "18 - Return bad request status when company's address postal code was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"IT Company\",\n    \"email\": \"it@itcompany.com\",\n    \"docNumber\": \"50322346000184\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "19 - Return bad request status when company's address postal code is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"1234567O\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "01 - Return no content status when delete company by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when delete company by invalid id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-companies}}/companies/1aB"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return not found status when delete by not found company id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-companies}}/companies/8f836f61-17c4-4f4f-935e-8625aad84ee7"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return not found status when delete by company id already deleted",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-companies}}/companies/{{company-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all by name or email paginated",
+					"item": [
+						{
+							"name": "01 - Return ok status when get companies by name or email",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-companies}}/companies/name-email?name=IT Company&email=it@itcompany.com",
+									"host": [
+										"{{url-companies}}"
+									],
+									"path": [
+										"companies",
+										"name-email"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "IT Company"
+										},
+										{
+											"key": "email",
+											"value": "it@itcompany.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return ok status and empty result when get customers by name or email and companies do not exists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-companies}}/companies/name-email?name=Thomas&email=agent.smith@itcompany.com",
+									"host": [
+										"{{url-companies}}"
+									],
+									"path": [
+										"companies",
+										"name-email"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Thomas"
+										},
+										{
+											"key": "email",
+											"value": "agent.smith@itcompany.com"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "02 - Customers",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "01 - Return created status when create new customers",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when customer's name was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when customer's name length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Th\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return bad request status when customer's email was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when customer's email is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson.itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when customer's doc number was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when customer's doc number is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when customer's cpf is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when customer's cnpj is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"12345678901234\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when customer's doc number already exists",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "11 - Return bad request status when customer's street was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "12 - Return bad request status when customer's street length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"AB\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "13 - Return bad request status when customer's address number was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "14 - Return bad request status when customer's address neighborhood was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "15 - Return bad request status when customer's address city was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "16 - Return bad request status when customer's address state was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "17 - Return bad request status when customer's address country was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "18 - Return bad request status when customer's address postal code was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						},
+						{
+							"name": "19 - Return bad request status when customer's address postal code is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"1234567O\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "01 - Return ok when find customer by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return not found when not find customer by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-customers}}/customers/8f836f61-17c4-4f4f-935e-8625aad84ee7"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request when find customer by invalid id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-customers}}/customers/1ab"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "01 - Return accept status when update customer",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when customer's name was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when customer's name length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Th\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return bad request status when customer's email was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when customer's email is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson.itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when customer's doc number was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when customer's doc number is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when customer's cpf is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"1234567890\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when customer's cnpj is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"12345678901234\",\n    \"docNumberType\": \"CNPJ\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when customer's doc number already exists",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "11 - Return bad request status when customer's street was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "12 - Return bad request status when customer's street length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"AB\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "13 - Return bad request status when customer's address number was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "14 - Return bad request status when customer's address neighborhood was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "15 - Return bad request status when customer's address city was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "16 - Return bad request status when customer's address state was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "17 - Return bad request status when customer's address country was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"\",\n    \"postalCode\": \"01538001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "18 - Return bad request status when customer's address postal code was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "19 - Return bad request status when customer's address postal code is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"name\": \"Thomas Anderson\",\n    \"email\": \"thomas.anderson@itcompany.com\",\n    \"docNumber\": \"11955975094\",\n    \"docNumberType\": \"CPF\",\n    \"street\": \"Av Lins de Vasconcelos\",\n    \"number\": \"1222\",\n    \"neighborhood\": \"Cambuci\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\",\n    \"country\": \"Brasil\",\n    \"postalCode\": \"1234567O\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "01 - Return no content status when delete customer by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when delete customer by invalid id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-customers}}/customers/1ab"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return not found status when delete by not found customer id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-customers}}/customers/8f836f61-17c4-4f4f-935e-8625aad84ee7"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return not found status when delete by customer id already deleted",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-customers}}/customers/{{customer-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all by name or email paginated",
+					"item": [
+						{
+							"name": "01 - Return ok status when get customers by name or email",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-customers}}/customers/name-email?name=Thomas&email=thomas.anderson@itcompany.com",
+									"host": [
+										"{{url-customers}}"
+									],
+									"path": [
+										"customers",
+										"name-email"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Thomas"
+										},
+										{
+											"key": "email",
+											"value": "thomas.anderson@itcompany.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return ok status and empty result when get customers by name or email and customers do not exists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-customers}}/customers/name-email?name=Thomas&email=agent.smith@itcompany.com",
+									"host": [
+										"{{url-customers}}"
+									],
+									"path": [
+										"customers",
+										"name-email"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Thomas"
+										},
+										{
+											"key": "email",
+											"value": "agent.smith@itcompany.com"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "03 - Products",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "01 - Return created status when create new product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when product skw was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when product sku length is bigger than 20 characters",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"012345678900123456789001234567890\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return conflict status when product sku already exists",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when product description was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when product description length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"01\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when product unit measurement was not filled",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when product unit measurement length is invalid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"012345678901234567890123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when product quantity stock is lower than zero",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": -10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when product price is lower than zero Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": -315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "01 - Return ok when find product by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return not found when not find product by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-products}}/products/{{id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request when not find product by invalid id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-products}}/products/1ab"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "01 - Return accepted status when update product",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when update product without sku",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return bad request status when update product sku length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"012345678901234567890123456789\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "04 - Return conflict status when update product sku already exists in other product",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Wht\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Return bad request status when update product description was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "06 - Return bad request status when update product description length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"1\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "07 - Return bad request status when update product unit measurement was not filled",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "08 - Return bad request status when update product unit measurement length is invalid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"012345678901234567890123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "09 - Return bad request status when update product quantity stock is lower than zero",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": -10.00,\n    \"price\": 315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Return bad request status when update product price is lower than zero Copy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deleted\": false,\n    \"active\": true,\n    \"sku\": \"Key/BR-/Erg/Bla\",\n    \"description\": \"Keyboard Ergonomic Black\",\n    \"quantityStock\": 10.00,\n    \"price\": -315.00,\n    \"unitMeasurement\": \"UN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "01 - Return no content status when delete product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return bad request status when delete product by invalid id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-products}}/products/1ab"
+							},
+							"response": []
+						},
+						{
+							"name": "03 - Return not found status when delete product by not found id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url-products}}/products/{{product-id}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all by sku or description",
+					"item": [
+						{
+							"name": "01 - Return ok status when get product by sku or description",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-products}}/products/sku-description?sku=Key/BR-/Erg/Wht&description=Keyboard Ergonomic White",
+									"host": [
+										"{{url-products}}"
+									],
+									"path": [
+										"products",
+										"sku-description"
+									],
+									"query": [
+										{
+											"key": "sku",
+											"value": "Key/BR-/Erg/Wht"
+										},
+										{
+											"key": "description",
+											"value": "Keyboard Ergonomic White"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return ok status and empty result when get product by sku or description and it does not exist",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-products}}/products/sku-description?sku=Key/BR-/Erg/Bla&description=Keyboard Ergonomic Black",
+									"host": [
+										"{{url-products}}"
+									],
+									"path": [
+										"products",
+										"sku-description"
+									],
+									"query": [
+										{
+											"key": "sku",
+											"value": "Key/BR-/Erg/Bla"
+										},
+										{
+											"key": "description",
+											"value": "Keyboard Ergonomic Black"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}

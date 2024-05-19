@@ -1,0 +1,43 @@
+{
+	"id": "09b598cf-29d7-41f0-a90f-7fccf45350a1",
+	"name": "TC-F04-Dev",
+	"values": [
+		{
+			"key": "url-companies",
+			"value": "localhost:8082",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "company-id",
+			"value": "d28818b4-49b7-47cd-a8a2-98fabd43b7d1",
+			"enabled": true
+		},
+		{
+			"key": "url-products",
+			"value": "localhost:8084",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "product-id",
+			"value": "3c1d3cdb-9405-4d26-b27f-521fb000ec1b",
+			"enabled": true
+		},
+		{
+			"key": "url-customers",
+			"value": "localhost:8083",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "customer-id",
+			"value": "bf6dfc21-7f24-4577-86f8-48211fad3512",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-04-27T14:59:09.561Z",
+	"_postman_exported_using": "Postman/10.24.24"
+}
