@@ -81,6 +81,10 @@ O objetivo deste microsserviço é gerenciar as empresas fornecedoras de um prod
 
     ![alt text](image.png)
 
+    Testes de integração e unidade com 93% de linhas de código cobertas.
+
+    ![alt text](image-6.png)
+
 # Microsserviço de gerenciamento de clientes
 O objetivo deste microsserviço é gerenciar os clientes consumidores de produto/serviço das empreasas fornecedoras. O cliente cadastrado será o ponto final da rota de entrega do bem para o cliente.
   * Microsserviço de Gerenciamento de clientes 
@@ -98,6 +102,10 @@ O objetivo deste microsserviço é gerenciar os clientes consumidores de produto
 
     ![alt text](image-1.png)
 
+    Testes de integração e unidade com 93% de linhas de código cobertas.
+
+    ![alt text](image-7.png)
+
 # Microsserviço de gerenciamento de produtos
 O objetivo deste microsserviço é gerenciar os produtos/serviços cadastrados pelo fornecedor, que por sua vez, serão incluídos em pedidos de venda.
   * Microsserviço de Gerenciamento de produtos 
@@ -114,6 +122,10 @@ O objetivo deste microsserviço é gerenciar os produtos/serviços cadastrados p
     * Banco de dados: http://localhost:5434/product-db
 
     ![alt text](image-2.png)
+
+    Testes de integração e unidade com 92% de linhas de código cobertas.
+
+    ![alt text](image-8.png)
 
 # Microsserviço de gerenciamento de pedidos
 O objetivo deste microsserviço é gerenciar os pedidos cadastrados pelos clientes, que irão consumir um produto/serviço.
@@ -138,6 +150,10 @@ O objetivo deste microsserviço é gerenciar os pedidos cadastrados pelos client
 
 ![alt text](image-3.png)
 
+Testes de integração e unidade com 85% de linhas de código cobertas.
+
+![alt text](image-9.png)
+
 # Microsserviço de gerenciamento de logística/entrega
 O objetivo deste microsserviço é gerenciar a logística e entrega dos pedidos cadastrados e pagos pelos clientes.
   * Microsserviço de Gerenciamento de entregas/logística 
@@ -155,6 +171,10 @@ O objetivo deste microsserviço é gerenciar a logística e entrega dos pedidos 
 
     ![alt text](image-4.png)
 
+    Testes de integração e unidade com 91% de linhas de código cobertas.
+
+    ![alt text](image-10.png)
+
 # Microsserviço de gerenciamento de importação de dados
 O objetivo deste microsserviço é importar dados de produtos e CEPs de fontes externas de dados, como arquivo CSV.
   * Microsserviço de Gerenciamento de importação de dados 
@@ -169,5 +189,8 @@ O objetivo deste microsserviço é importar dados de produtos e CEPs de fontes e
 
     ![alt text](image-5.png)
 
-
+# Qualidade de software
+Para garantir a qualidade de software, implementamos testes de unidade e de integração na grande maioria do código. Para identificar o que foi testado, utilizamos a cobertura de testes de código do próprio IntelliJ IDEA. A decisão de utilizar o próprio IntelliJ foi motivada pela manutenção de menor número de dependências a serem adicionadas no projeto, com o objetivo de reduzir possibilidades de libs externas abrirem uma fragilidade na segurança da aplicação (lembrando do caso do Log4J) e que no cenário em que o projeto foi desenvolvido não foi necessária a adição do Jacoco.
+Os testes de unidade foram implementados nas classes de domínio e application testando a menor unidade de código. Os testes de integração foram implementados nas classes de presentation, realizando a requisição REST aos endpoints em diversos cenários, testando o código por completo, da entrada dos dados, processamento e saída. O objetivo desta segregação foi considerar a eficiência dos testes versus o tempo de
+entrega do projeto. Aplicando este método, foi apurado pela cobertuda de testes do IntelliJ IDEA, em mais de 90% de linhas de código testadas na maioria dos microserviços. Para realizar o teste de cobertura, clique com o botão direito do mouse sobre o nome do projeto, navegue até a opção More Run/Debug, em seguida selecione a opção Run tests in <nome do projeto> with Coverage.
 
