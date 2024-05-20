@@ -20,19 +20,20 @@ Criar um sistema de gerenciamento de pedidos de venda, composto por microserviç
 1. Java 17
 2. Gradle 7.6
 3. Spring Boot 3.2.2
-4. Spring Web MVC 
-5. Spring Data JPA 
-6. Spring Bean Validation 
+4. Spring Web MVC (compatível com o Spring Boot) 
+5. Spring Data JPA (compatível com o Spring Boot)  
+6. Spring Bean Validation (compatível com o Spring Boot) 
 7. Spring Doc Open API 2.3.0
-8. Spring Batch
-9. Spring Open Feign
+8. Spring Batch 5
+9. Spring Open Feign 4.1.1
 10. Lombok 
-11. Postgres 15.1 e Postgres 16.1
+11. Postgres 15.1 e Postgres 16.3
 12. Flyway 
 13. JUnit 5
 14. Mockito
 15. TestContainers
 16. Docker
+17. WireMock 3.3.1
 
 # Setup do Projeto
 
@@ -59,5 +60,114 @@ Para criar o container, execute o docker-compose (Acesse a pasta raiz do projeto
   * Microsserviço de Gerenciamento de importação de dados - http://localhost:8087/swagger-ui/index.html
 
 # Documentação do PROJETO
-* TechChallengeFase03-RM350802-MarceloAkioNishimoriV2.pdf
-* PDF salvo na pasta documents deste projeto.
+O projeto está dividido em 6 containers de microsserviços backend Java Spring Boot e outros 6 containers de banco de dados Postgresql. Cada um dos microsserviços possui seu respectivo banco de dados.
+
+O backend foi implementado seguindo as recomendações da Clean Architecture, com Clean Code, SOLID e testes automatizados de unidade e integração, seguindo os princípios do FIRST e Clean Tests. Observação: a Clean Architecuture não foi completamente implementada, visto que os microsserviços são fortemente acomplados com o Spring, entretanto, a aplicação está bem segmentada em pacotes e responsabilidades.
+
+# Microsserviço de gerenciamento de empresas
+O objetivo deste microsserviço é gerenciar as empresas fornecedoras de um produto ou serviço para atender seus clientes. A empresa cadastrada será o ponto inicial da rota de entrega do bem para o cliente.
+  * Microsserviço de Gerenciamento de empresas 
+    * API: 
+        * http://localhost:8082/companies 
+            * Verbo POST - para realizar o cadastro.
+        * http://localhost:8082/companies/{id} 
+            * Verbo GET - para realizar a pesquisa de uma empresa pelo seu ID.
+            * Verbo PUT - para realizar a atualização de dados de uma empresa pelo seu ID. Necessário informar request body.
+            * Verbo DELETE - para realizar a exclusão (soft delete) de uma empresa pelo seu ID.
+        * http://localhost:8082/companies/name-email
+            * Verbo GET - para realizar a pesquisa paginada de uma empresa pelo seu nome ou email.
+    * Documentação da API: http://localhost:8082/swagger-ui/index.html
+    * Banco de dados: http://localhost:5432/company-db
+
+    ![alt text](image.png)
+
+# Microsserviço de gerenciamento de clientes
+O objetivo deste microsserviço é gerenciar os clientes consumidores de produto/serviço das empreasas fornecedoras. O cliente cadastrado será o ponto final da rota de entrega do bem para o cliente.
+  * Microsserviço de Gerenciamento de clientes 
+    * API: 
+        * http://localhost:8083/customers
+            * Verbo POST - para realizar o cadastro.
+        * http://localhost:8083/customers/{id}
+            * Verbo GET - para realizar a pesquisa de um cliente pelo seu ID.
+            * Verbo PUT - para realizar a atualização de dados de um cliente pelo seu ID. Necessário informar request body.
+            * Verbo DELETE - para realizar a exclusão (soft delete) de um cliente pelo seu ID.   
+        * http://localhost:8083/customers/name-email
+            * Verbo GET - para realizar a pesquisa paginada de um cliente pelo seu nome ou email.             
+    * Documentação: http://localhost:8083/swagger-ui/index.html
+    * Banco de dados: http://localhost:5433/customer-db
+
+    ![alt text](image-1.png)
+
+# Microsserviço de gerenciamento de produtos
+O objetivo deste microsserviço é gerenciar os produtos/serviços cadastrados pelo fornecedor, que por sua vez, serão incluídos em pedidos de venda.
+  * Microsserviço de Gerenciamento de produtos 
+    * API: 
+        * http://localhost:8084/products
+            * Verbo POST - para realizar o cadastro.
+        * http://localhost:8084/products/{id}
+            * Verbo GET - para realizar a pesquisa de um produto pelo seu ID.
+            * Verbo PUT - para realizar a atualização de dados de um produto pelo seu ID. Necessário informar request body.
+            * Verbo DELETE - para realizar a exclusão (soft delete) de um produto pelo seu ID.   
+        * http://localhost:8084/products/sku-description
+            * Verbo GET - para realizar a pesquisa paginada de um produto pelo seu sku ou descrição.
+    * Documentação: http://localhost:8084/swagger-ui/index.html
+    * Banco de dados: http://localhost:5434/product-db
+
+    ![alt text](image-2.png)
+
+# Microsserviço de gerenciamento de pedidos
+O objetivo deste microsserviço é gerenciar os pedidos cadastrados pelos clientes, que irão consumir um produto/serviço.
+  * Microsserviço de Gerenciamento de pedidos 
+    * API: 
+        * http://localhost:8085/orders
+            * Verbo POST - para realizar o cadastro.
+        * http://localhost:8085/orders/{id}
+            * Verbo GET - para realizar a pesquisa de um pedido pelo seu ID.
+            * Verbo PUT - para realizar a atualização de dados de um pedido pelo seu ID. Necessário informar request body.
+            * Verbo DELETE - para realizar a exclusão (soft delete) de um pedido pelo seu ID.   
+        * http://localhost:8085/orders/{id}/payment-confirmation
+            * Verbo PATCH - para informar o pagamento do pedido. Este endpoint realiza uma comunicação com o endpoint do microsserviço de logística/entrega para cadastrar uma ordem de entrega. Neste endpoint será validado se o pedido já foi pago e evitar duplicidade de pagamento.
+        * http://localhost:8085/orders/{id}/awaiting-delivery
+            * Verbo PATCH - para informar que o pedido está em entrega. Este endpoint será consumido pelo microsserviço de logística/entrega quando o pedido estiver em rota de entrega. Neste endpoint será validado se o pedido foi pago e se já está no status atual, evitando persistência desnecessária no banco de dados.
+        * http://localhost:8085/orders/{id}/delivery-confirmation
+            * Verbo PUT - para informar que o pedido foi entregue. Este endpoint será consumido pelo microsserviço de logística/entrega quando a entrega do pedido for concluída. Neste endpoint será validado se o pedido foi pago e se já está no status atual, evitando persistência desnecessária no banco de dados.
+        * http://localhost:8085/orders/company-customer
+            * Verbo GET - para realizar a pesquisa paginada de um pedido pela empresa ou cliente.        
+    * Documentação: http://localhost:8085/swagger-ui/index.html
+    * Banco de dados: http://localhost:5435/order-db
+
+![alt text](image-3.png)
+
+# Microsserviço de gerenciamento de logística/entrega
+O objetivo deste microsserviço é gerenciar a logística e entrega dos pedidos cadastrados e pagos pelos clientes.
+  * Microsserviço de Gerenciamento de entregas/logística 
+    * API: 
+        * http://localhost:8086/logistics
+            * Verbo POST - para realizar o cadastro da ordem de entrega, que será gerado no pagamento do pedido. Este endpoint será consumido pelo microserviço de pedidos, no momento do pagamento do pedido.
+        * http://localhost:8086/logistics/{id}
+            * Verbo GET - para realizar a pesquisa de uma ordem de entrega pelo seu ID.            
+        * http://localhost:8086/logistics/{id}/order-is-ready-to-deliver
+            * Verbo PATCH - para realizar confirmação que o pedido está pronto para ser entregue, após a análise da rota de entrega. Este endpoint consumirá o microsserviço de pedido quando o pedido estiver em rota de entrega. Neste endpoint será validado se o pedido já foi entregue e se já está no status atual, evitando persistência desnecessária no banco de dados.
+        * http://localhost:8086/logistics/{id}/delivery-confirmation
+            * Verbo PATCH - para realizar confirmação da entrega do pedido. Este endpoint consumirá o microsserviço de pedido quando o pedido for entregue. Neste endpoint será validado se o pedido foi entregue e se já está no status atual, evitando persistência desnecessária no banco de dados.
+    * Documentação: http://localhost:8086/swagger-ui/index.html
+    * Banco de dados: http://localhost:5436/logistics-db
+
+    ![alt text](image-4.png)
+
+# Microsserviço de gerenciamento de importação de dados
+O objetivo deste microsserviço é importar dados de produtos e CEPs de fontes externas de dados, como arquivo CSV.
+  * Microsserviço de Gerenciamento de importação de dados 
+    * API: 
+        * http://localhost:8087/products/batch
+            * Verbo POST - para realizar a importação de produtos para a base de dados do microsserviço de gerenciamento de produtos.
+        * http://localhost:8087/logistics/batch
+            * Verbo POST - para realizar a importação de CEPs para a base de dados do microsserviço de gerenciamento logística/entrega.
+    * Documentação: http://localhost:8087/swagger-ui/index.html
+    * Banco de dados: http://localhost:5437/batch-db
+        * Este microsserviço possui seu próprio banco de dados para realizar o gerenciamento de importações realizadas (DER com o fundo escuro no print abaixo). 
+
+    ![alt text](image-5.png)
+
+
+
