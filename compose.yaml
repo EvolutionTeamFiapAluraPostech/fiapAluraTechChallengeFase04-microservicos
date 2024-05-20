@@ -114,6 +114,7 @@ services:
       spring.datasource.url: jdbc:postgresql://order-db-service/order-db
       spring.datasource.username: order-postgres-user
       spring.datasource.password: order-postgres-pwd
+      URL_LOGISTICS: http://logistics-api:8086
     networks:
       - fase-04-network
 
@@ -143,6 +144,7 @@ services:
       spring.datasource.url: jdbc:postgresql://logistics-db-service/logistics-db
       spring.datasource.username: logistics-postgres-user
       spring.datasource.password: logistics-postgres-pwd
+      URL_ORDER: http://order-api:8085
     networks:
       - fase-04-network
 

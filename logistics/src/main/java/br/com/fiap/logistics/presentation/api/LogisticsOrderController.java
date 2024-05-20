@@ -56,7 +56,7 @@ public class LogisticsOrderController implements LogisticsOrderApi {
   @PatchMapping("/{id}/order-is-ready-to-deliver")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   @Override
-  public void patchLogisticsOrderIsReadyToDelivery(String id) {
+  public void patchLogisticsOrderIsReadyToDelivery(@PathVariable String id) {
     orderIsReadyToDeliverUseCase.execute(id);
   }
 

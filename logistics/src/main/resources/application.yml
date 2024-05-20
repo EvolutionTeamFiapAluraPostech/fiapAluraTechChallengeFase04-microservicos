@@ -23,4 +23,4 @@ base:
     http-company: http://localhost:8082
     http-customer: http://localhost:8083
     http-product: http://localhost:8084
-    http-order: http://localhost:8085
+    http-order: ${URL_ORDER:http://localhost:8085}
