@@ -2373,7 +2373,7 @@
 							"request": {
 								"method": "PATCH",
 								"header": [],
-								"url": "{{url-orders}}/orders/af226383-4a63-4661-866d-afdac5817a65/payment-confirmation"
+								"url": "{{url-orders}}/orders/a77a5f70-07d5-4db5-9b80-2d3bc03f0ed5/payment-confirmation"
 							},
 							"response": []
 						}
@@ -2394,7 +2394,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"companyId\": \"dcd3398e-4988-4fba-b8c0-a649ae1ff677\",\n    \"companyName\": \"Matrix Company\",\n    \"companyEmail\": \"matrix@matrix.com\",\n    \"companyDocNumber\": \"41404629000184\",\n    \"companyDocNumberType\": \"CNPJ\",\n    \"companyStreet\": \"Alameda Rio Claro\",\n    \"companyNumber\": \"190\",\n    \"companyNeighborhood\": \"Bela Vista\",\n    \"companyCity\": \"São Paulo\",\n    \"companyState\": \"SP\",\n    \"companyCountry\": \"Brasil\",\n    \"companyPostalCode\": \"01332010\",\n    \"orderId\": \"0b5d4603-91b6-49b6-a6b6-8594929266ba\",\n    \"customerId\": \"64f6db0a-3d9a-429c-a7e6-04c4691f3be9\",\n    \"customerName\": \"Thomas Anderson\",\n    \"customerEmail\": \"thomas.anderson@itcompany.com\",\n    \"customerDocNumber\": \"11955975094\",\n    \"customerDocNumberType\": \"CPF\",\n    \"customerStreet\": \"Av. Lins de Vasconcelos\",\n    \"customerNumber\": \"1222\",\n    \"customerNeighborhood\": \"Cambuci\",\n    \"customerCity\": \"São Paulo\",\n    \"customerState\": \"SP\",\n    \"customerCountry\": \"Brasil\",\n    \"customerPostalCode\": \"01538001\",\n    \"logisticsItems\": [\n        {\n            \"orderItemId\": \"f8640bcd-2fcc-428c-8984-7854efa2c21f\",\n            \"productId\": \"cfa8315f-3f9a-4105-a2f2-f02a0a303b20\",\n            \"productSku\": \"Key/BR-/Erg/Bla\",\n            \"productDescription\": \"Keyboard Ergonomic Black\",\n            \"quantity\": 10,\n            \"price\": 315,\n            \"totalAmout\": 0\n        }\n    ]\n}\n{\n    \"companyId\": \"dcd3398e-4988-4fba-b8c0-a649ae1ff677\",\n    \"companyName\": \"Matrix Company\",\n    \"companyEmail\": \"matrix@matrix.com\",\n    \"companyDocNumber\": \"41404629000184\",\n    \"companyDocNumberType\": \"CNPJ\",\n    \"companyStreet\": \"Alameda Rio Claro\",\n    \"companyNumber\": \"190\",\n    \"companyNeighborhood\": \"Bela Vista\",\n    \"companyCity\": \"São Paulo\",\n    \"companyState\": \"SP\",\n    \"companyCountry\": \"Brasil\",\n    \"companyPostalCode\": \"01332010\",\n    \"orderId\": \"2779dcff-26b3-4805-bfe3-766b38fad0fd\",\n    \"customerId\": \"64f6db0a-3d9a-429c-a7e6-04c4691f3be9\",\n    \"customerName\": \"Thomas Anderson\",\n    \"customerEmail\": \"thomas.anderson@itcompany.com\",\n    \"customerDocNumber\": \"11955975094\",\n    \"customerDocNumberType\": \"CPF\",\n    \"customerStreet\": \"Av. Lins de Vasconcelos\",\n    \"customerNumber\": \"1222\",\n    \"customerNeighborhood\": \"Cambuci\",\n    \"customerCity\": \"São Paulo\",\n    \"customerState\": \"SP\",\n    \"customerCountry\": \"Brasil\",\n    \"customerPostalCode\": \"01538001\",\n    \"logisticsItems\": [\n        {\n            \"orderItemId\": \"546ae52e-13eb-44d8-9d59-20ba1e494b0d\",\n            \"productId\": \"cfa8315f-3f9a-4105-a2f2-f02a0a303b20\",\n            \"productSku\": \"Key/BR-/Erg/Bla\",\n            \"productDescription\": \"Keyboard Ergonomic Black\",\n            \"quantity\": 10,\n            \"price\": 315\n        }\n    ]\n}",
+									"raw": "{\n    \"companyId\": \"dcd3398e-4988-4fba-b8c0-a649ae1ff677\",\n    \"companyName\": \"Matrix Company\",\n    \"companyEmail\": \"matrix@matrix.com\",\n    \"companyDocNumber\": \"41404629000184\",\n    \"companyDocNumberType\": \"CNPJ\",\n    \"companyStreet\": \"Alameda Rio Claro\",\n    \"companyNumber\": \"190\",\n    \"companyNeighborhood\": \"Bela Vista\",\n    \"companyCity\": \"São Paulo\",\n    \"companyState\": \"SP\",\n    \"companyCountry\": \"Brasil\",\n    \"companyPostalCode\": \"01332010\",\n    \"orderId\": \"93a3a4b7-f6d1-4b8b-a217-b4baac995af7\",\n    \"customerId\": \"64f6db0a-3d9a-429c-a7e6-04c4691f3be9\",\n    \"customerName\": \"Thomas Anderson\",\n    \"customerEmail\": \"thomas.anderson@itcompany.com\",\n    \"customerDocNumber\": \"11955975094\",\n    \"customerDocNumberType\": \"CPF\",\n    \"customerStreet\": \"Av. Lins de Vasconcelos\",\n    \"customerNumber\": \"1222\",\n    \"customerNeighborhood\": \"Cambuci\",\n    \"customerCity\": \"São Paulo\",\n    \"customerState\": \"SP\",\n    \"customerCountry\": \"Brasil\",\n    \"customerPostalCode\": \"01538001\",\n    \"logisticsItems\": [\n        {\n            \"orderItemId\": \"f8640bcd-2fcc-428c-8984-7854efa2c21f\",\n            \"productId\": \"cfa8315f-3f9a-4105-a2f2-f02a0a303b20\",\n            \"productSku\": \"Key/BR-/Erg/Bla\",\n            \"productDescription\": \"Keyboard Ergonomic Black\",\n            \"quantity\": 10,\n            \"price\": 315,\n            \"totalAmout\": 0\n        }\n    ]\n}\n{\n    \"companyId\": \"dcd3398e-4988-4fba-b8c0-a649ae1ff677\",\n    \"companyName\": \"Matrix Company\",\n    \"companyEmail\": \"matrix@matrix.com\",\n    \"companyDocNumber\": \"41404629000184\",\n    \"companyDocNumberType\": \"CNPJ\",\n    \"companyStreet\": \"Alameda Rio Claro\",\n    \"companyNumber\": \"190\",\n    \"companyNeighborhood\": \"Bela Vista\",\n    \"companyCity\": \"São Paulo\",\n    \"companyState\": \"SP\",\n    \"companyCountry\": \"Brasil\",\n    \"companyPostalCode\": \"01332010\",\n    \"orderId\": \"2779dcff-26b3-4805-bfe3-766b38fad0fd\",\n    \"customerId\": \"64f6db0a-3d9a-429c-a7e6-04c4691f3be9\",\n    \"customerName\": \"Thomas Anderson\",\n    \"customerEmail\": \"thomas.anderson@itcompany.com\",\n    \"customerDocNumber\": \"11955975094\",\n    \"customerDocNumberType\": \"CPF\",\n    \"customerStreet\": \"Av. Lins de Vasconcelos\",\n    \"customerNumber\": \"1222\",\n    \"customerNeighborhood\": \"Cambuci\",\n    \"customerCity\": \"São Paulo\",\n    \"customerState\": \"SP\",\n    \"customerCountry\": \"Brasil\",\n    \"customerPostalCode\": \"01538001\",\n    \"logisticsItems\": [\n        {\n            \"orderItemId\": \"546ae52e-13eb-44d8-9d59-20ba1e494b0d\",\n            \"productId\": \"cfa8315f-3f9a-4105-a2f2-f02a0a303b20\",\n            \"productSku\": \"Key/BR-/Erg/Bla\",\n            \"productDescription\": \"Keyboard Ergonomic Black\",\n            \"quantity\": 10,\n            \"price\": 315\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2408,14 +2408,37 @@
 					]
 				},
 				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "Get logistics by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165"
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Deliver",
 					"item": [
 						{
-							"name": "01 - Return no content http status when the order was delivered",
+							"name": "01 - Return no content http status when the order is ready to deliver",
 							"request": {
 								"method": "PATCH",
 								"header": [],
-								"url": "{{url-logistics}}/logistics/646123ac-e166-485f-83e6-b8ee00863ae8/delivery-confirmation"
+								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165/order-is-ready-to-deliver"
+							},
+							"response": []
+						},
+						{
+							"name": "02 - Return no content http status when the order was delivered",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165/delivery-confirmation"
 							},
 							"response": []
 						}
