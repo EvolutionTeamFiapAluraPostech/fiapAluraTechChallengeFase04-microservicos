@@ -18,6 +18,8 @@ import org.springframework.data.domain.Page;
 public record OrderDto(
     @Schema(example = "bae0fc3d-be9d-472a-bf03-7a7ee2411ce1", description = "Identificador único do pedido.")
     String id,
+    @Schema(example = "ENTREGUE", description = "Status do pedido.")
+    String orderStatus,
     @Schema(example = "bae0fc3d-be9d-472a-bf03-7a7ee2411ce1", description = "Identificador único da empresa.")
     @NotBlank
     String companyId,
@@ -125,6 +127,7 @@ public record OrderDto(
 
   public OrderDto(Order order) {
     this(order.getId().toString(),
+        order.getOrderStatus().name(),
         order.getCompanyId().toString(),
         order.getCompanyName(),
         order.getCompanyEmail(),
@@ -169,6 +172,7 @@ public record OrderDto(
     });
 
     return new OrderDto(order.getId() != null ? order.getId().toString() : null,
+        order.getOrderStatus().name(),
         order.getCompanyId().toString(),
         order.getCompanyName(),
         order.getCompanyEmail(),

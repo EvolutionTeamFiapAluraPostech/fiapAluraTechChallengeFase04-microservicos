@@ -11,6 +11,8 @@ import java.util.List;
 public record LogisticOrderDto(
     @Schema(example = "bae0fc3d-be9d-472a-bf03-7a7ee2411ce1", description = "Identificador único da logística do pedido.")
     String id,
+    @Schema(example = "ENTREGUE", description = "Status do pedido.")
+    String status,
     @Schema(example = "bae0fc3d-be9d-472a-bf03-7a7ee2411ce1", description = "Identificador único do pedido.")
     String orderId,
     @Schema(example = "bae0fc3d-be9d-472a-bf03-7a7ee2411ce1", description = "Identificador único da empresa.")
@@ -86,6 +88,7 @@ public record LogisticOrderDto(
     });
 
     return new LogisticOrderDto(logistics.getId() != null ? logistics.getId().toString() : null,
+        logistics.getStatus().name(),
         logistics.getOrderId() != null ? logistics.getOrderId().toString() : null,
         logistics.getCompanyId() != null ? logistics.getCompanyId().toString() : null,
         logistics.getCompanyName(),
