@@ -2,6 +2,7 @@ package br.com.fiap.logistics.presentation.api;
 
 import br.com.fiap.logistics.application.usecase.ConfirmLogisticOrderDeliveryUseCase;
 import br.com.fiap.logistics.application.usecase.CreateLogisticsOrderUseCase;
+import br.com.fiap.logistics.application.usecase.GetLogisticByOrderIdUseCase;
 import br.com.fiap.logistics.application.usecase.GetLogisticsOrderByIdUseCase;
 import br.com.fiap.logistics.application.usecase.OrderIsReadyToDeliverUseCase;
 import br.com.fiap.logistics.presentation.api.dto.LogisticOrderDto;
@@ -23,15 +24,17 @@ public class LogisticsOrderController implements LogisticsOrderApi {
 
   private final CreateLogisticsOrderUseCase createLogisticsOrderUseCase;
   private final GetLogisticsOrderByIdUseCase getLogisticsOrderByIdUseCase;
+  private final GetLogisticByOrderIdUseCase getLogisticByOrderIdUseCase;
   private final OrderIsReadyToDeliverUseCase orderIsReadyToDeliverUseCase;
   private final ConfirmLogisticOrderDeliveryUseCase confirmLogisticOrderDeliveryUseCase;
 
   public LogisticsOrderController(CreateLogisticsOrderUseCase createLogisticsOrderUseCase,
       GetLogisticsOrderByIdUseCase getLogisticsOrderByIdUseCase,
-      OrderIsReadyToDeliverUseCase orderIsReadyToDeliverUseCase,
+      GetLogisticByOrderIdUseCase getLogisticByOrderIdUseCase, OrderIsReadyToDeliverUseCase orderIsReadyToDeliverUseCase,
       ConfirmLogisticOrderDeliveryUseCase confirmLogisticOrderDeliveryUseCase) {
     this.createLogisticsOrderUseCase = createLogisticsOrderUseCase;
     this.getLogisticsOrderByIdUseCase = getLogisticsOrderByIdUseCase;
+    this.getLogisticByOrderIdUseCase = getLogisticByOrderIdUseCase;
     this.orderIsReadyToDeliverUseCase = orderIsReadyToDeliverUseCase;
     this.confirmLogisticOrderDeliveryUseCase = confirmLogisticOrderDeliveryUseCase;
   }
@@ -50,6 +53,14 @@ public class LogisticsOrderController implements LogisticsOrderApi {
   @Override
   public LogisticOrderDto getLogisticsOrderById(@PathVariable String id) {
     var logistic = getLogisticsOrderByIdUseCase.execute(id);
+    return LogisticOrderDto.from(logistic);
+  }
+
+  @GetMapping("/order-id/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  @Override
+  public LogisticOrderDto getLogisticByOrderId(@PathVariable String id) {
+    var logistic = getLogisticByOrderIdUseCase.execute(id);
     return LogisticOrderDto.from(logistic);
   }
 

@@ -5,7 +5,7 @@ import static br.com.fiap.order.domain.enums.OrderStatus.PAGO;
 import static br.com.fiap.order.shared.testdata.OrderTestData.createNewOrder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import br.com.fiap.order.domain.entity.Order;
@@ -48,7 +48,7 @@ class PatchOrderAwaitingDeliveryApiTest {
     order.setOrderStatus(PAGO);
     var orderInputDto = JsonUtil.toJson(order);
 
-    var request = patch(URL_ORDERS_AWAITING_DELIVERY, order.getId())
+    var request = put(URL_ORDERS_AWAITING_DELIVERY, order.getId())
         .contentType(APPLICATION_JSON)
         .content(orderInputDto);
     mockMvc.perform(request)
@@ -65,7 +65,7 @@ class PatchOrderAwaitingDeliveryApiTest {
     var order = OrderTestData.createOrder();
     var orderInputDto = JsonUtil.toJson(order);
     var orderId = "1aB";
-    var request = patch(URL_ORDERS_AWAITING_DELIVERY, orderId)
+    var request = put(URL_ORDERS_AWAITING_DELIVERY, orderId)
         .contentType(APPLICATION_JSON)
         .content(orderInputDto);
     mockMvc.perform(request)
@@ -77,7 +77,7 @@ class PatchOrderAwaitingDeliveryApiTest {
     var order = OrderTestData.createOrder();
     var orderInputDto = JsonUtil.toJson(order);
     var orderId = UUID.randomUUID();
-    var request = patch(URL_ORDERS_AWAITING_DELIVERY, orderId)
+    var request = put(URL_ORDERS_AWAITING_DELIVERY, orderId)
         .contentType(APPLICATION_JSON)
         .content(orderInputDto);
     mockMvc.perform(request)
@@ -91,7 +91,7 @@ class PatchOrderAwaitingDeliveryApiTest {
     var orderPaymentConfirmation = entityManager.merge(order);
     var orderInputDto = JsonUtil.toJson(orderPaymentConfirmation);
 
-    var request = patch(URL_ORDERS_AWAITING_DELIVERY, orderPaymentConfirmation.getId())
+    var request = put(URL_ORDERS_AWAITING_DELIVERY, orderPaymentConfirmation.getId())
         .contentType(APPLICATION_JSON)
         .content(orderInputDto);
     mockMvc.perform(request)
@@ -105,7 +105,7 @@ class PatchOrderAwaitingDeliveryApiTest {
     var orderPaymentConfirmation = entityManager.merge(order);
     var orderInputDto = JsonUtil.toJson(orderPaymentConfirmation);
 
-    var request = patch(URL_ORDERS_AWAITING_DELIVERY, orderPaymentConfirmation.getId())
+    var request = put(URL_ORDERS_AWAITING_DELIVERY, orderPaymentConfirmation.getId())
         .contentType(APPLICATION_JSON)
         .content(orderInputDto);
     mockMvc.perform(request)

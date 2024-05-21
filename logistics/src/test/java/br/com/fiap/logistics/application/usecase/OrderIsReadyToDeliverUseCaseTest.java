@@ -24,6 +24,7 @@ import br.com.fiap.logistics.domain.entity.Logistic;
 import br.com.fiap.logistics.domain.exception.NoResultException;
 import br.com.fiap.logistics.domain.exception.ValidatorException;
 import br.com.fiap.logistics.domain.service.LogisticService;
+import br.com.fiap.logistics.infrastructure.httpclient.order.request.PutOrderAwaitingDeliveryHttpRequest;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -45,6 +46,8 @@ class OrderIsReadyToDeliverUseCaseTest {
   private LogisticOrderAlreadyDeliveredValidator logisticOrderAlreadyDeliveredValidator;
   @Mock
   private LogisticOrderIsInRouteToDeliverValidator logisticOrderIsAlreadyInRouteToDeliverValidator;
+  @Mock
+  private PutOrderAwaitingDeliveryHttpRequest putOrderAwaitingDeliveryHttpRequest;
   @InjectMocks
   private OrderIsReadyToDeliverUseCase orderIsReadyToDeliverUseCase;
 
@@ -60,6 +63,7 @@ class OrderIsReadyToDeliverUseCaseTest {
     verify(uuidValidator).validate(id.toString());
     verify(logisticOrderAlreadyDeliveredValidator).validate(logistic);
     verify(logisticOrderIsAlreadyInRouteToDeliverValidator).validate(logistic);
+    verify(putOrderAwaitingDeliveryHttpRequest).request(logistic.getOrderId().toString());
   }
 
   @ParameterizedTest
@@ -76,6 +80,7 @@ class OrderIsReadyToDeliverUseCaseTest {
     verify(logisticService, never()).findByIdRequired(any(UUID.class));
     verify(logisticOrderAlreadyDeliveredValidator, never()).validate(any(Logistic.class));
     verify(logisticOrderIsAlreadyInRouteToDeliverValidator, never()).validate(any(Logistic.class));
+    verify(putOrderAwaitingDeliveryHttpRequest, never()).request(any(String.class));
   }
 
   @Test
@@ -91,6 +96,7 @@ class OrderIsReadyToDeliverUseCaseTest {
     verify(uuidValidator).validate(id.toString());
     verify(logisticOrderAlreadyDeliveredValidator, never()).validate(any(Logistic.class));
     verify(logisticOrderIsAlreadyInRouteToDeliverValidator, never()).validate(any(Logistic.class));
+    verify(putOrderAwaitingDeliveryHttpRequest, never()).request(any(String.class));
   }
 
   @Test
@@ -108,5 +114,6 @@ class OrderIsReadyToDeliverUseCaseTest {
         .hasMessage(LOGISTIC_ORDER_WAS_ALREADY_DELIVERED_MESSAGE.formatted(id));
     verify(uuidValidator).validate(id.toString());
     verify(logisticOrderIsAlreadyInRouteToDeliverValidator, never()).validate(any(Logistic.class));
+    verify(putOrderAwaitingDeliveryHttpRequest, never()).request(any(String.class));
   }
 }

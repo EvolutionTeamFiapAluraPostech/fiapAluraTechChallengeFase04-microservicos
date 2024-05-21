@@ -162,6 +162,8 @@ O objetivo deste microsserviço é gerenciar a logística e entrega dos pedidos 
             * Verbo POST - para realizar o cadastro da ordem de entrega, que será gerado no pagamento do pedido. Este endpoint será consumido pelo microserviço de pedidos, no momento do pagamento do pedido.
         * http://localhost:8086/logistics/{id}
             * Verbo GET - para realizar a pesquisa de uma ordem de entrega pelo seu ID.            
+        * http://localhost:8086/logistics/order-id/{id}
+            * Verbo GET - para realizar a pesquisa de uma ordem de entrega pelo ID do pedido de venda.            
         * http://localhost:8086/logistics/{id}/order-is-ready-to-deliver
             * Verbo PATCH - para realizar confirmação que o pedido está pronto para ser entregue, após a análise da rota de entrega. Este endpoint consumirá o microsserviço de pedido quando o pedido estiver em rota de entrega. Neste endpoint será validado se o pedido já foi entregue e se já está no status atual, evitando persistência desnecessária no banco de dados.
         * http://localhost:8086/logistics/{id}/delivery-confirmation

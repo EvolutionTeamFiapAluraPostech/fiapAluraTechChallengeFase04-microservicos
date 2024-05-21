@@ -93,7 +93,7 @@ public interface OrdersApi {
       @ApiResponse(responseCode = "404", description = "not found para pedido não encontrado", content = {
           @Content(schema = @Schema(hidden = true))}),
   })
-  void patchOrderAwaitingDelivery(
+  void putOrderAwaitingDelivery(
       @Parameter(description = "UUID válido de um pedido") String id);
 
   @Operation(summary = "Confirma a entrega do pedido",

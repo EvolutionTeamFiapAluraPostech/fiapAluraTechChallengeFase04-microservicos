@@ -99,10 +99,10 @@ public class OrdersController implements OrdersApi {
     confirmOrderPaymentUseCase.execute(id);
   }
 
-  @PatchMapping("/{id}/awaiting-delivery")
+  @PutMapping("/{id}/awaiting-delivery")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   @Override
-  public void patchOrderAwaitingDelivery(@PathVariable String id) {
+  public void putOrderAwaitingDelivery(@PathVariable String id) {
     awaitOrderDeliveryUseCase.execute(id);
   }
 

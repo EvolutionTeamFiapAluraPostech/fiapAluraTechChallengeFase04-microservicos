@@ -1,7 +1,9 @@
 package br.com.fiap.logistics.domain.service;
 
 import static br.com.fiap.logistics.domain.fields.LogisticFields.LOGISTICS_ID_FIELD;
+import static br.com.fiap.logistics.domain.fields.LogisticFields.LOGISTICS_ORDER_ID_FIELD;
 import static br.com.fiap.logistics.domain.messages.LogisticMessages.LOGISTICS_NOT_FOUND_BY_ID_MESSAGE;
+import static br.com.fiap.logistics.domain.messages.LogisticMessages.LOGISTICS_NOT_FOUND_BY_ORDER_ID_MESSAGE;
 
 import br.com.fiap.logistics.domain.entity.Logistic;
 import br.com.fiap.logistics.domain.exception.NoResultException;
@@ -27,5 +29,11 @@ public class LogisticService {
     return logisticRepository.findById(id).orElseThrow(
         () -> new NoResultException(new FieldError(this.getClass().getSimpleName(),
             LOGISTICS_ID_FIELD, LOGISTICS_NOT_FOUND_BY_ID_MESSAGE.formatted(id))));
+  }
+
+  public Logistic findLogisticByOrderIdRequired(UUID orderId) {
+    return logisticRepository.findLogisticByOrderId(orderId).orElseThrow(
+        () -> new NoResultException(new FieldError(this.getClass().getSimpleName(),
+            LOGISTICS_ORDER_ID_FIELD, LOGISTICS_NOT_FOUND_BY_ORDER_ID_MESSAGE.formatted(orderId))));
   }
 }

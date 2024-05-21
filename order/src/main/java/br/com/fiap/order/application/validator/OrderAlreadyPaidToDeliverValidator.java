@@ -13,7 +13,8 @@ import org.springframework.validation.FieldError;
 public class OrderAlreadyPaidToDeliverValidator {
 
   public void validate(Order order) {
-    if (!order.getOrderStatus().equals(OrderStatus.PAGO)) {
+    if (!order.getOrderStatus().equals(OrderStatus.PAGO) && !order.getOrderStatus()
+        .equals(OrderStatus.AGUARDANDO_ENTREGA)) {
       throw new ValidatorException(new FieldError(this.getClass().getSimpleName(), ORDER_STATUS,
           ORDER_NOT_PAID_TO_DELIVER.formatted(order.getId())));
     }

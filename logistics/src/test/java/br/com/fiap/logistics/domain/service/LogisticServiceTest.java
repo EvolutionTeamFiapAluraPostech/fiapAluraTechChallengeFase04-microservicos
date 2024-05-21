@@ -1,6 +1,9 @@
 package br.com.fiap.logistics.domain.service;
 
+import static br.com.fiap.logistics.domain.fields.LogisticFields.*;
+import static br.com.fiap.logistics.domain.fields.LogisticFields.LOGISTICS_ORDER_ID_FIELD;
 import static br.com.fiap.logistics.domain.messages.LogisticMessages.LOGISTICS_NOT_FOUND_BY_ID_MESSAGE;
+import static br.com.fiap.logistics.domain.messages.LogisticMessages.LOGISTICS_NOT_FOUND_BY_ORDER_ID_MESSAGE;
 import static br.com.fiap.logistics.shared.testdata.LogisticsTestData.createLogistic;
 import static br.com.fiap.logistics.shared.testdata.LogisticsTestData.createNewLogistic;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,11 +60,36 @@ class LogisticServiceTest {
     var logistics = createLogistic();
     when(logisticRepository.findById(logistics.getId()))
         .thenThrow(new NoResultException(new FieldError(this.getClass().getSimpleName(),
-            LogisticFields.LOGISTICS_ID_FIELD,
-            LOGISTICS_NOT_FOUND_BY_ID_MESSAGE.formatted(logistics.getId()))));
+            LOGISTICS_ID_FIELD, LOGISTICS_NOT_FOUND_BY_ID_MESSAGE.formatted(logistics.getId()))));
 
     assertThatThrownBy(() -> logisticService.findByIdRequired(logistics.getId()))
         .isInstanceOf(NoResultException.class)
         .hasMessage(LOGISTICS_NOT_FOUND_BY_ID_MESSAGE.formatted(logistics.getId()));
   }
+
+  @Test
+  void shouldFindLogisticByOrderId() {
+    var logistics = createLogistic();
+    when(logisticRepository.findLogisticByOrderId(logistics.getOrderId()))
+        .thenReturn(Optional.of(logistics));
+
+    var logisticsFound = logisticService.findLogisticByOrderIdRequired(logistics.getOrderId());
+
+    assertThat(logisticsFound).isNotNull();
+    assertThat(logisticsFound.getId()).isNotNull();
+  }
+
+  @Test
+  void shouldThrowExceptionWhenLogisticWasNotFoundByOrderId() {
+    var logistics = createLogistic();
+    when(logisticRepository.findLogisticByOrderId(logistics.getOrderId()))
+        .thenThrow(new NoResultException(new FieldError(this.getClass().getSimpleName(),
+            LOGISTICS_ORDER_ID_FIELD,
+            LOGISTICS_NOT_FOUND_BY_ORDER_ID_MESSAGE.formatted(logistics.getOrderId()))));
+
+    assertThatThrownBy(() -> logisticService.findLogisticByOrderIdRequired(logistics.getOrderId()))
+        .isInstanceOf(NoResultException.class)
+        .hasMessage(LOGISTICS_NOT_FOUND_BY_ORDER_ID_MESSAGE.formatted(logistics.getOrderId()));
+  }
+
 }

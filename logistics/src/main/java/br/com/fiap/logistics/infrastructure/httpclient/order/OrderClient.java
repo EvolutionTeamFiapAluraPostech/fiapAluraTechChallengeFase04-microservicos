@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 @FeignClient(value = "order", url = "${base.url.http-order}")
 public interface OrderClient {
 
+  @PutMapping("/orders/{id}/awaiting-delivery")
+  void putOrderAwaitingDelivery(@PathVariable String id);
+
   @PutMapping("/orders/{id}/delivery-confirmation")
   void putOrderDeliveryConfirmation(@PathVariable String id);
 }
