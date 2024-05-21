@@ -2336,7 +2336,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{url-orders}}/orders/26b93191-bc5f-441d-9d12-b61c2f5e3307"
+								"url": "{{url-orders}}/orders/3ebe1b5e-e5a2-44c3-867d-afd0f891682a"
 							},
 							"response": []
 						}
@@ -2373,7 +2373,7 @@
 							"request": {
 								"method": "PATCH",
 								"header": [],
-								"url": "{{url-orders}}/orders/a77a5f70-07d5-4db5-9b80-2d3bc03f0ed5/payment-confirmation"
+								"url": "{{url-orders}}/orders/3ebe1b5e-e5a2-44c3-867d-afd0f891682a/payment-confirmation"
 							},
 							"response": []
 						}
@@ -2415,7 +2415,16 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165"
+								"url": "{{url-logistics}}/logistics/5cfdac80-5eec-4d02-99ed-2231aaf356d1"
+							},
+							"response": []
+						},
+						{
+							"name": "Get logistics by ORDER ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url-logistics}}/logistics/order-id/3ebe1b5e-e5a2-44c3-867d-afd0f891682a"
 							},
 							"response": []
 						}
@@ -2429,7 +2438,7 @@
 							"request": {
 								"method": "PATCH",
 								"header": [],
-								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165/order-is-ready-to-deliver"
+								"url": "{{url-logistics}}/logistics/385c305f-04f2-4822-86e9-da8917b15d42/order-is-ready-to-deliver"
 							},
 							"response": []
 						},
@@ -2438,7 +2447,7 @@
 							"request": {
 								"method": "PATCH",
 								"header": [],
-								"url": "{{url-logistics}}/logistics/5fcee2fa-a876-4d2e-81ab-e122fb486165/delivery-confirmation"
+								"url": "{{url-logistics}}/logistics/385c305f-04f2-4822-86e9-da8917b15d42/delivery-confirmation"
 							},
 							"response": []
 						}
